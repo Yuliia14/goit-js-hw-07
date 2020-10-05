@@ -25,7 +25,7 @@ const galleryAlbumMarkUp = images.reduce((acc, { url, alt }) => {
   return acc;
 }, "");
 
-galleryAlbum.insertAdjacentHTML("afterbegin", galleryAlbumCreator);
+galleryAlbum.insertAdjacentHTML("afterbegin", galleryAlbumMarkUp);
 
 // const galleryAlbumCreator = images.map((img) => {
 //   const galleryAlbumItem = document.createElement("li");
