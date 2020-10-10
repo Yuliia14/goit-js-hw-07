@@ -1,36 +1,31 @@
-// const inputEl = document.querySelector("#controls>input");
-// const boxesContainerEl = document.querySelector("#boxes");
-// const renderButtonEl = document.querySelector('[data-action="render"]');
-// const destroyButtonEl = document.querySelector('[data-action="destroy"]');
+const inputEl = document.querySelector("#controls input");
+const boxesContainerEl = document.querySelector("#boxes");
+const renderButtonEl = document.querySelector('[data-action="render"]');
+const destroyButtonEl = document.querySelector('[data-action="destroy"]');
 
-// renderButtonEl.addEventListener("click", getAmount);
-// destroyButtonEl.addEventListener("click", destroyBoxes);
+renderButtonEl.addEventListener("click", getAmount);
 
-// let amount = inputEl.value;
+let amount = inputEl.value;
 
-// function random() {
-//   return Math.floor(Math.random() * 256);
-// }
+function getAmount() {
+    let amount = inputEl.value;
+    createBoxes(amount);
+}
 
-// function getAmount() {
-//   let amount = inputEl.value;
-//   createBoxes(amount);
-// }
+function createBoxes(amount) { 
+    let firstSize = 30;
+    
+    for (let i = 0; i < amount; i += 1) {
+        let size = firstSize + i * 10;
+        let div = document.createElement("div");
+        div.style.cssText = `width: ${size}px; height: ${size}px; background-color: rgba( ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)}`;
 
-// function createBoxes(amount) {
-//   let startSize = 30;
+        boxesContainerEl.appendChild(div);
+    }  
+}
 
-//   for (let i = 1; i < amount; i += 1) {
-//     let size = startSize + i * 10;
-//     const boxCreator = document.createElement("div");
+destroyButtonEl.addEventListener("click", destroyBoxes);
 
-//     boxCreator.style.width = size;
-//     boxCreator.style.height = size;
-//     // boxCreator.style.backgroundColor = blue;
-//     //   boxCreator.style.backgroundColor = rgba(${random()},${random()},${random()});
-//   }
-//   boxesContainerEl.appendChild(boxCreator);
-// }
-// function destroyBoxes() {
-//   boxesContainerEl.innerHTML = " ";
-// }
+function destroyBoxes() {
+    boxesContainerEl.innerHTML = ' ';
+}
